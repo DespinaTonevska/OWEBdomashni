@@ -1,0 +1,108 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* gradient позадина */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+
+h1#nazad 
+{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #004aad;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #ff5e62;
+
+}
+
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border: 5px solid #004aad; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3); 
+}
+
+
+form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1; 
+    border: 2px solid #ccc; 
+    margin: 30px auto;
+}
+
+
+form:hover 
+{
+    transform: scale(1.02);
+}
+
+
+
+button {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    font-weight: bold; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+button:hover {
+    background: linear-gradient(to right, #00f2fe, #4facfe);
+    transform: scale(1.05);
+}
+
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #004aad;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 1.1em;
+}
+
+
+a:hover {
+    color: #ff5e62;
+}
+
+@media print {
+    body, form, h1#nazad, a {
+        background: white;
+        color: black;
+        text-shadow: none;
+    }
+    form {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    a {
+        text-decoration: underline;
+    }
+}
