@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Explorer – Tokyo</title>
+ <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+    <!-- CSS-->
+    <link rel="stylesheet" href="p1.css">
+<style>
+
+
+.hero-section { height: 80vh; background: url('tokyo.jpg') center/cover no-repeat; position: relative; } 
+.hero-text { background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; } 
+#gallery img { height: 250px; object-fit: cover; transition: transform 0.3s; }
+ #gallery img:hover { transform: scale(1.05); } 
+ #mainPage { display:none; }
+.article-full { margin-top:50px; padding:20px; background:#f8f9fa; border-radius:10px; }
+.login-popup { display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999; }
+.login-popup-container { background: rgba(0,0,0,0.95); padding:30px; border-radius:10px; width:300px; color:white; text-align:center; }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+  <div id="loginContainer">
+    <h2>Добредојдовте</h2>
+    <input type="text" id="username" class="form-control mb-3" placeholder="Корисничко име">
+    <input type="password" id="password" class="form-control mb-3" placeholder="Лозинка">
+    <button id="loginBtn" class="btn btn-danger w-100 mb-2">Најави се</button>
+    <button id="guestBtn" class="btn btn-secondary w-100">Продолжи без најава</button>
+    <p id="loginMessage" class="mt-2 text-white"></p>
+  </div>
+</div>
+
+
+<div class="login-popup" id="loginPopup">
+  <div class="login-popup-container">
+    <h3>Најави се</h3>
+    <input type="text" id="popupUsername" class="form-control mb-3" placeholder="Корисничко име">
+    <input type="password" id="popupPassword" class="form-control mb-3" placeholder="Лозинка">
+    <button id="popupLoginBtn" class="btn btn-danger w-100">Најави се</button>
+    <button id="closePopupBtn" class="btn btn-secondary w-100 mt-2">Затвори</button>
+    <p id="popupMessage" class="mt-2 text-white"></p>
+  </div>
+</div>
+
+<!-- MAINPAGE -->
+<div id="mainPage">
+
+  <!-- NAVIGACIJA -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">City Explorer: Tokyo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Почетна</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blog">Блог</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Галерија</a></li>
+          <li class="nav-item"><a class="nav-link" href="#survey">Анкета</a></li>
+          <li class="nav-item"><a class="nav-link" href="#top10">Top 10</a></li>
+          <li class="nav-item">
+            <button class="btn btn-outline-light ms-2" id="loginAgainBtn">Најави се</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- POCETEN DEL -->
+  <header class="hero-section d-flex align-items-center justify-content-center text-center text-white">
+    <div class="hero-text">
+      <h1>Добредојдовте во Токио</h1>
+      <p>Градот каде што традицијата се среќава со иднината </p>
+      <a href="#gallery" class="btn btn-danger mt-3">Истражи го градот</a>
+    </div>
+  </header>
+
+
+<!-- LOKALNO VREME -->
+<section id="tokyoTime" class="container text-center mt-4 mb-4">
+  <h3>Локално време во Токио:</h3>
+  <p id="timeDisplay" style="font-size:1.5rem; font-weight:bold;">--:--:--</p>
+</section>
+
+
+  <!-- BLOG -->
+  <section id="blog" class="container mt-5 mb-5">
+    <h2>Блог – Водич низ Токио</h2>
+    <p class="lead">Статии, написи и топ 10 работи кои мора да ги видите во градот.</p>
+    <div class="row mt-4">
+      <div class="col-md-6 mb-3">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title">10 работи кои мора да ги видите</h5>
+            <p class="card-text">Од Shibuya Crossing до Senso-ji Temple – откријте ги најпопуларните локации и искуства.</p>
+            <a href="#article1" class="btn btn-outline-primary">Прочитај повеќе</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title">Совети од локални водичи</h5>
+            <p class="card-text">Како да се движите низ градот, каде да јадете и што да не пропуштите.</p>
+            <a href="#article2" class="btn btn-outline-primary">Прочитај повеќе</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATIJA -->
+  <section id="article1" class="article-full container">
+    <h3>10 работи кои мора да ги видите во Токио</h3>
+    <p>1. Посета на Shibuya Crossing – најпознатиот пешачки премин во светот.</p>
+    <p>2. Разгледување на Senso-ji Temple – најстариот храм во Токио.</p>
+    <p>3. Подигање на Tokyo Skytree за панорамски поглед на градот.</p>
+    <p>4. Шопинг во Harajuku – модна и културна икона.</p>
+    <p>5. Ноќно светло во Ginza – луксузен шопинг и ресторани.</p>
+    <p>6. Уживање во локална храна и ресторани.</p>
+    <p>7. Преку парк Ueno и музеите околу него.</p>
+    <p>8. Посета на Tsukiji Market – свежа риба и традиционална храна.</p>
+    <p>9. Возење со метро и откривање на различни квартови.</p>
+    <p>10. Учествување на локални фестивали и настани.</p>
+  </section>
+
+  <section id="article2" class="article-full container">
+    <h3>Совети од локални водичи</h3>
+    <p>Како да се движите низ градот: користете метро и пешачки маршрути за оптимално време.</p>
+    <p>Каде да јадете: обидете се со локални ресторани, улична храна и кафеанки за автентично искуство.</p>
+    <p>Што да не пропуштите: традиционални храмови, модерни шопинг дестинации и ноќен живот.</p>
+  </section>
+
+  <!-- GALERIJA -->
+  <section id="gallery" class="container text-center mt-5 mb-5">
+    <h2>Галерија на Токио</h2>
+    <div class="row mt-4">
+      <!-- DETALI ZA SLIKI -->
+
+       <!-- SHINJUKU -->
+     <div class="col-md-4 mb-3">
+  <div class="card shadow p-2">
+    <a href="https://en.wikipedia.org/wiki/Shinjuku">
+      <img src="shinjuku.jpg" class="card-img-top" alt="Shinjuku">
+    </a>
+    <h5 class="mt-2">Shinjuku</h5>
+    <button class="btn btn-outline-danger mt-2 like-btn" data-id="shinjuku">❤️ Лајк <span class="like-count">0</span></button>
+    <div class="mt-2">
+      <input type="text" class="form-control comment-input" placeholder="Оставете коментар..." data-id="shinjuku">
+      <button class="btn btn-primary btn-sm mt-1 comment-btn" data-id="shinjuku">Коментирај</button>
+      <ul class="comment-list list-unstyled mt-1" data-id="shinjuku"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- HARAJUKU -->
+     <div class="col-md-4 mb-3">
+  <div class="card shadow p-2">
+    <a href="https://en.wikipedia.org/wiki/Harajuku" target="_blank">
+      <img src="harajuku.jpg" class="card-img-top" alt="Harajuku">
+    </a>
+    <h5 class="mt-2">Harajuku</h5>
+    <button class="btn btn-outline-danger mt-2 like-btn" data-id="harajuku"> ❤️ Лајк <span class="like-count">0</span></button>
+    <div class="mt-2">
+      <input type="text" class="form-control comment-input" placeholder="Оставете коментар..." data-id="harajuku">
+      <button class="btn btn-primary btn-sm mt-1 comment-btn" data-id="harajuku">Коментирај</button>
+      <ul class="comment-list list-unstyled mt-1" data-id="harajuku"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- GINZA -->
+  <div class="col-md-4 mb-3">
+  <div class="card shadow p-2">
+    <a href="https://en.wikipedia.org/wiki/Ginza" target="_blank">
+      <img src="ginza.jpg" class="card-img-top" alt="Ginza">
+    </a>
+    <h5 class="mt-2">Ginza</h5>
+    
+    <button class="btn btn-outline-danger mt-2 like-btn" data-id="ginza">
+      ❤️ Лајк <span class="like-count">0</span>
+    </button>
+    <div class="mt-2">
+      <input type="text" class="form-control comment-input" placeholder="Оставете коментар..." data-id="ginza">
+      <button class="btn btn-primary btn-sm mt-1 comment-btn" data-id="ginza">Коментирај</button>
+      <ul class="comment-list list-unstyled mt-1" data-id="ginza"></ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- TOWER -->
+    <div class="col-md-4 mb-3">
+  <div class="card shadow p-2">
+    <a href="https://en.wikipedia.org/wiki/Tokyo_Tower" target="_blank">
+      <img src="tokyotower.jpg" class="card-img-top" alt="Tokyo Tower">
+    </a>
+    <h5 class="mt-2">Tokyo Tower</h5>
+    <button class="btn btn-outline-danger mt-2 like-btn" data-id="tokyotower">
+      ❤️ Лајк <span class="like-count">0</span>
+    </button>
+    <div class="mt-2">
+      <input type="text" class="form-control comment-input" placeholder="Оставете коментар..." data-id="tokyotower">
+      <button class="btn btn-primary btn-sm mt-1 comment-btn" data-id="tokyotower">Коментирај</button>
+      <ul class="comment-list list-unstyled mt-1" data-id="tokyotower"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- MEIJI -->
+<div class="col-md-4 mb-3">
+  <div class="card shadow p-2">
+    <a href="https://en.wikipedia.org/wiki/Meiji_Shrine" target="_blank">
+      <img src="meijishrine.jpg" class="card-img-top" alt="Meiji Shrine">
+    </a>
+    <h5 class="mt-2">Meiji Shrine</h5>
+    <button class="btn btn-outline-danger mt-2 like-btn" data-id="meijishrine">
+      ❤️ Лајк <span class="like-count">0</span>
+    </button>
+    <div class="mt-2">
+      <input type="text" class="form-control comment-input" placeholder="Оставете коментар..." data-id="meijishrine">
+      <button class="btn btn-primary btn-sm mt-1 comment-btn" data-id="meijishrine">Коментирај</button>
+      <ul class="comment-list list-unstyled mt-1" data-id="meijishrine"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- ASAKUSA -->
+<div class="col-md-4 mb-3">
+  <div class="card shadow p-2">
+    <a href="https://en.wikipedia.org/wiki/Asakusa" target="_blank">
+      <img src="asakusa.jpg" class="card-img-top" alt="Asakusa">
+    </a>
+    <h5 class="mt-2">Asakusa</h5>
+    <button class="btn btn-outline-danger mt-2 like-btn" data-id="asakusa">
+      ❤️ Лајк <span class="like-count">0</span>
+    </button>
+    <div class="mt-2">
+      <input type="text" class="form-control comment-input" placeholder="Оставете коментар..." data-id="asakusa">
+      <button class="btn btn-primary btn-sm mt-1 comment-btn" data-id="asakusa">Коментирај</button>
+      <ul class="comment-list list-unstyled mt-1" data-id="asakusa"></ul>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+  <!-- FORMULAR -->
+  <section id="survey" class="container mt-5 mb-5">
+    <h2>Анкета</h2>
+    <form id="surveyForm">
+      <p>Кое е твоето омилено место во Токио?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="place" value="Shibuya Crossing"><label>Shibuya Crossing</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="place" value="Tokyo Skytree"><label>Tokyo Skytree</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="place" value="Senso-ji Temple"><label>Senso-ji Temple</label></div>
+
+      <p class="mt-3">Колку пати сте го посетиле Токио?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="visit" value="Еднаш"><label>Еднаш</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="visit" value="Неколку пати"><label>Неколку пати</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="visit" value="Никогаш, би сакал/а"><label>Никогаш, би сакал/а</label></div>
+
+      <p class="mt-3">Кој е твојот омилен тип на активност во Токио?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="activity" value="Шопинг"><label>Шопинг</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="activity" value="Храна и ресторани"><label>Храна и ресторани</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="activity" value="Разгледување"><label>Разгледување</label></div>
+
+      <div class="mb-3 mt-3">
+        <label for="experience" class="form-label">Споделете ги вашите искуства:</label>
+        <textarea class="form-control" id="experience" name="experience" rows="3" placeholder="Вашите искуства..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-2">Испрати</button>
+    </form>
+    <p id="surveyResult" class="mt-2"></p>
+  </section>
+
+  <!-- TOP 10 -->
+  <section id="top10" class="container mt-5 mb-5">
+    <h2>Top 10 работи кои можете да ги направите во Токио</h2>
+    <ol>
+      <li>Посета на Shibuya Crossing</li>
+      <li>Разгледување на Senso-ji Temple</li>
+      <li>Посета на Tokyo Skytree за панорамски поглед</li>
+      <li>Шопинг во Harajuku</li>
+      <li>Ноќно светло во Ginza</li>
+      <li>Уживање во локална храна и ресторани</li>
+      <li>Парк Ueno</li>
+      <li>Посета на Tsukiji Market</li>
+      <li>Возење со метро и откривање на различни квартови</li>
+      <li>Учествување на локални фестивали и настани</li>
+    </ol>
+  </section>
+
+  <footer class="text-center text-white bg-dark p-3">
+    <p>© 2025 City Explorer – Tokyo | Despina Tonevska</p>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="p1.js"></script>
+</body>
+</html>

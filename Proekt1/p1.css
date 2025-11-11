@@ -1,0 +1,162 @@
+/* ОСНОВЕН BODY */
+body {
+    font-family: 'Noto Sans JP', sans-serif; 
+    background-color: #fff; 
+    margin: 0; 
+    padding: 0; 
+} 
+
+/* HERO */
+.hero-section {
+    height: 100vh; 
+    background: url('tokyo.jpg') center/cover no-repeat; 
+} 
+
+
+.hero-text h1 {
+    font-size: 3rem; 
+    text-shadow: 2px 2px 5px black;
+} 
+
+.hero-text p {
+    font-size: 1.2rem; 
+} 
+
+/* КАРТИЧКИ */
+.card {
+    border: none; 
+    border-radius: 15px; 
+}
+
+.card img {
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+
+/* ЛОКАЛНО ВРЕМЕ */
+#tokyoTime h3 {
+    font-size: 1.8rem; 
+    margin-bottom: 10px; 
+    text-shadow: 1px 1px 3px black; 
+}
+
+
+.hero-text {
+    background: rgba(0,0,0,0.4); 
+    padding: 20px; 
+    border-radius: 15px; 
+}
+
+/* HOVER ЗА КАРТИЧКИ */
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+    transition: 0.3s ease; 
+}
+
+/* АНКЕТА */
+#survey {
+    background-color: #f8f9fa; 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+}
+
+#survey h2 {
+    text-align: center; 
+    margin-bottom: 20px; 
+    color: #d32f2f; 
+    font-weight: bold; 
+}
+
+#survey p {
+    font-weight: 500; 
+    margin-top: 15px; 
+}
+
+#survey .form-check {
+    margin-bottom: 8px; 
+}
+
+#survey .form-check-input:checked + label {
+    font-weight: bold; 
+    color: #d32f2f; }
+
+#survey textarea {
+    border-radius: 10px; 
+    border: 1px solid #ccc; 
+    resize: none; 
+}
+
+#survey button[type="submit"] {
+    background-color: #d32f2f; 
+    border: none; 
+    color: white; 
+    font-weight: bold; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    transition: all 0.3s; 
+}
+
+#survey button[type="submit"]:hover {
+    background-color: #b71c1c; 
+    transform: scale(1.05); 
+}
+
+/* TOP 10  */
+#top10 {
+    background-color: #fff3e0; 
+    padding: 30px; 
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+}
+
+#top10 h2 {
+    text-align: center; 
+    margin-bottom: 20px; 
+    color: #ff5722; 
+    font-weight: bold; 
+}
+
+#top10 ol {
+    padding-left: 20px; 
+}
+
+#top10 li {
+    margin-bottom: 10px; 
+    padding: 10px 15px; 
+    background-color: #fff8e1; 
+    border-left: 5px solid #ff5722; 
+    border-radius: 5px; 
+    transition: all 0.3s; 
+}
+
+#top10 li:hover {
+    background-color: #ffe0b2; 
+    transform: scale(1.02); 
+}
+
+/* LOGIN */
+#loginPage {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background: url('tokyologin.png') no-repeat center center/cover; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 9999; 
+}
+
+/* LOGIN  */
+#loginContainer {
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 30px; 
+    border-radius: 15px; 
+    width: 300px; 
+    color: white; 
+    text-align: center; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
+}
