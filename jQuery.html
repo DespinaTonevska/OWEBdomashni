@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  $("#myInput1, #myInput2, #myInput3").on("keyup", function() {
+    var val1 = $("#myInput1").val().toLowerCase();
+    var val2 = $("#myInput2").val().toLowerCase();
+    var val3 = $("#myInput3").val().toLowerCase();
+
+    $("#myTable tr").filter(function() {
+     
+      var td1 = $(this).find(".ime").text().toLowerCase(); 
+      var td2 = $(this).find(".prezime").text().toLowerCase();
+      var td3 = $(this).find(".mail").text().toLowerCase(); 
+
+      
+      $(this).toggle(td1.indexOf(val1) > -1 && td2.indexOf(val2) > -1 && td3.indexOf(val3) > -1);
+    });
+  });
+
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Filterable Table</h2>
+<p>Type something in the input field to search the table for first names, last names or emails:</p>  
+<p>
+<input id="myInput1" type="text" placeholder="Prebaraj ime..">
+
+<input id="myInput2" type="text" placeholder="Prebaraj prezime..">
+
+<input id="myInput3" type="text" placeholder="Prebaraj mail..">
+
+</p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody id="myTable">
+    <tr>
+      <td class="ime">John</td>
+      <td class="prezime">Doe</td>
+      <td class="mail">john@example.com</td>
+    </tr>
+    <tr>
+      <td class="ime">Mary</td>
+      <td class="prezime">Moe</td>
+      <td class="mail">mary@mail.com</td>
+    </tr>
+    <tr>
+      <td class="ime">July</td>
+      <td class="prezime">Dooley</td>
+      <td class="mail">july@greatstuff.com</td>
+    </tr>
+    <tr>
+      <td class="ime">Anja</td>
+      <td class="prezime">Ravendale</td>
+      <td class="mail">a_r@test.com</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+
+</body>
+</html>
