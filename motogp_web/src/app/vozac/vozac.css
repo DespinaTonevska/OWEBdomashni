@@ -1,0 +1,40 @@
+
+.box {
+   background: linear-gradient(135deg, #d69595, #c71919); 
+   padding: 15px;
+   margin: 10px;
+   border-radius: 15px; 
+   width: 250px;        
+   text-align: center;
+   box-shadow: 2px 2px 6px rgba(0,0,0,0.2); 
+   font-size: large;
+}
+
+.box img {
+   width: 300px;           
+   height: auto;           
+   border-radius: 10px;
+   margin: 10px auto 15px auto; 
+   display: block;         
+}
+
+.box:hover {  
+    box-shadow: 4px 6px 12px rgba(0,0,0,0.3); 
+}
+
+
+
+button {
+    background-color: #7ab2c0;  
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #d69595;  
+    box-shadow: 4px 6px 12px rgba(0,0,0,0.3); 
+}
+
